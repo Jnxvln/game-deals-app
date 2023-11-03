@@ -3,15 +3,14 @@ import { TGame } from "../types/TGame";
 const API_URL = "https://www.cheapshark.com/api/1.0/deals";
 let storeID = 1; // 1 = steam platform
 
-export const getSteamDeals = async () => {
-  try {
-    const res = await fetch(`${API_URL}?storeID=${storeID}`);
-    const data: TGame[] = await res.json();
+export const getSteamDeals = async (pageSize?: number | string) => {
+  const res = await fetch(`${API_URL}?storeID=${storeID}${pageSize && `pageSize=${pageSize}`}`);
 
-    if (!data) return new Error("Error fetching Steam game deals");
+  if (!res) throw new Error("No response from server");
 
-    return data;
-  } catch (error) {
-    console.log(error);
-  }
+  const data: TGame[] = await res.json();
+
+  if (!data) throw new Error("Error fetching Steam game deals");
+
+  return data;
 };

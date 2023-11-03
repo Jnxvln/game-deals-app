@@ -5,6 +5,9 @@ const nextConfig = {
   sassOptions: {
     includePaths: [path.join(__dirname, "lib", "styles")],
   },
+  images: {
+    domains: ["cdn.cloudflare.steamstatic.com"],
+  },
 };
 
 module.exports = nextConfig;

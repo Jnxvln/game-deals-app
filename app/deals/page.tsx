@@ -1,11 +1,11 @@
 import GameList from "@/lib/components/DealList/DealList";
 import Header from "@/lib/components/Header/Header";
-import Link from "next/link";
 
-export default function Home() {
+export default function Deals() {
   return (
     <main>
-      <Header title="Game Centric" />
+      <Header title="Steam Deals" />
+      <GameList />
     </main>
   );
 }

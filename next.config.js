@@ -6,7 +6,12 @@ const nextConfig = {
     includePaths: [path.join(__dirname, "lib", "styles")],
   },
   images: {
-    domains: ["cdn.cloudflare.steamstatic.com"],
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "cdn.cloudflare.steamstatic.com",
+      },
+    ],
   },
 };
 

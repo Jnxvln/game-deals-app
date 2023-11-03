@@ -1,4 +1,4 @@
-export type TGame = {
+export type TDeal = {
   dealID?: string;
   dealRating?: string;
   gameID?: string;

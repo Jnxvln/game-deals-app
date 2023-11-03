@@ -20,7 +20,7 @@ export default function GameList() {
   //     .catch((err) => console.log(err));
   // }
   return (
-    <div className="flex flex-wrap items-center justify-evenly gap-8 p-6">
+    <div className="flex flex-wrap items-center justify-evenly gap-8 p-6 pt-10 max-w-7xl m-auto">
       {steamDeals?.map((deal: TDeal) => (
         <Deal key={deal.gameID} deal={deal} />
       ))}

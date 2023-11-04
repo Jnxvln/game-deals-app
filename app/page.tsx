@@ -1,4 +1,4 @@
-import GameList from "@/lib/components/DealList/DealList";
+import GameList from "@/lib/components/Deals/DealList/DealList";
 import Header from "@/lib/components/Header/Header";
 import Link from "next/link";
 

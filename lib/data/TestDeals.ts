@@ -1,4 +1,4 @@
-export const TestGameData = [
+export const TestDeals = [
   {
     internalName: "PANDEMICTRAIN",
     title: "Pandemic Train",
@@ -62,7 +62,8 @@ export const TestGameData = [
     releaseDate: 1145491200,
     lastChange: 1698864019,
     dealRating: "9.4",
-    thumb: "https://cdn.cloudflare.steamstatic.com/steam/apps/3010/capsule_sm_120.jpg?t=1639506578",
+    thumb:
+      "https://cdn.cloudflare.steamstatic.com/steam/apps/3010/capsule_sm_120.jpg?t=1639506578",
   },
   {
     internalName: "BIOSHOCKINFINITE",
@@ -83,7 +84,8 @@ export const TestGameData = [
     releaseDate: 1364169600,
     lastChange: 1698947783,
     dealRating: "9.4",
-    thumb: "https://cdn.cloudflare.steamstatic.com/steam/apps/8870/capsule_sm_120.jpg?t=1602794480",
+    thumb:
+      "https://cdn.cloudflare.steamstatic.com/steam/apps/8870/capsule_sm_120.jpg?t=1602794480",
   },
   {
     internalName: "DISCOELYSIUMTHEFINALCUT",

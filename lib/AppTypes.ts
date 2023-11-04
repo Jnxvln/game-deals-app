@@ -19,3 +19,13 @@ export type TDeal = {
   thumb?: string;
   title?: string;
 };
+
+export type TGame = {
+  cheapest?: string;
+  cheapestDealID?: string;
+  external?: string;
+  gameID?: string;
+  internalName?: string;
+  steamAppID?: null;
+  thumb?: string;
+};

@@ -10,8 +10,9 @@ export default function Deal({ deal }: { deal: TDeal }) {
   };
 
   const figureSteamRatingTextStyle = (rating) => {
-    let fRating = rating.toString().toLowerCase();
-    switch (fRating) {
+    // Apply style based on steam text rating
+    let stringRating = rating.toString().toLowerCase();
+    switch (stringRating) {
       case "mixed":
         return "text-amber-600";
       case "mostly positive":
@@ -26,20 +27,12 @@ export default function Deal({ deal }: { deal: TDeal }) {
   };
 
   const figurePercentageOff = ({ normalPrice, salePrice }: TSalePercentage) => {
-    const _normal = normalPrice ? parseFloat(normalPrice) : 0;
-    const _sale = salePrice ? parseFloat(salePrice) : 0;
-    let diff;
+    if (!normalPrice || !salePrice) return;
 
-    if (_normal && _sale) {
-      diff = _normal - _sale;
-
-      const decimalPercentage = (_normal - _sale) / _normal;
-      const percentage = (decimalPercentage * 100).toPrecision(2);
-
-      return percentage;
-    }
-
-    return `${normalPrice}, ${salePrice}`;
+    const normal = normalPrice ? parseFloat(normalPrice) : 0;
+    const sale = salePrice ? parseFloat(salePrice) : 0;
+    const percentage = (((normal - sale) / normal) * 100).toPrecision(2);
+    return percentage;
   };
 
   return (
@@ -49,7 +42,12 @@ export default function Deal({ deal }: { deal: TDeal }) {
     >
       <div className="relative" style={{ width: "auto", height: "300px" }}>
         <a href={`${DEAL_BASEURL}${deal.dealID}`} target="_blank">
-          <Image src={deal.thumb} alt={deal.title} fill style={{ objectFit: "cover" }} />
+          <Image
+            src={deal?.thumb ? deal?.thumb : "https://placehold.co/400"}
+            alt={deal?.title ? deal?.title : "Game thumbnail"}
+            fill
+            style={{ objectFit: "cover" }}
+          />
         </a>
       </div>
 

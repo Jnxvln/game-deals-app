@@ -11,10 +11,10 @@ export default function DealList({ deals }: { deals?: TDeal[] }) {
     if (!deals && steamDeals.length === 0) {
       getSteamDeals(10).then((_deals) => setSteamDeals(_deals));
     }
-    if (deals) {
+    if (deals && steamDeals.length === 0) {
       setSteamDeals(deals);
     }
-  }, [deals]);
+  }, [deals, steamDeals]);
 
   return (
     <div className="flex flex-wrap items-center justify-evenly gap-8 p-6 pt-10 max-w-7xl m-auto">

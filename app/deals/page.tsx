@@ -1,5 +1,5 @@
 import GameList from "@/lib/components/Deals/DealList/DealList";
-import Header from "@/lib/components/Header/Header";
+import Header from "@/lib/components/ui/Header/Header";
 
 export default function Deals() {
   return (

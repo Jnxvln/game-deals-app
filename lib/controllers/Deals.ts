@@ -5,7 +5,11 @@ let storeID = 1; // 1 = steam platform
 
 export const getSteamDeals = async (pageSize?: number | string) => {
   const res = await fetch(
-    `${API_URL}?storeID=${storeID}${pageSize && `&pageSize=${pageSize}`}`
+    `${API_URL}?storeID=${storeID}${pageSize && `&pageSize=${pageSize}`}`,
+    {
+      method: "GET",
+      redirect: "follow",
+    }
   );
 
   if (!res) throw new Error("No response from server");

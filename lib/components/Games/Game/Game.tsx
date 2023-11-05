@@ -2,7 +2,7 @@ import { TGame } from "@/lib/AppTypes";
 import Image from "next/image";
 
 export default function Game({ game }: { game: TGame }) {
-  // const DEAL_BASEURL = "https://www.cheapshark.com/redirect?dealID=";
+  const DEAL_BASEURL = "https://www.cheapshark.com/redirect?dealID=";
 
   return (
     <div
@@ -23,11 +23,11 @@ export default function Game({ game }: { game: TGame }) {
       {/* ACTIONS */}
       <div className="flex">
         <a
-          href="#"
+          href={`${DEAL_BASEURL}${game.cheapestDealID}`}
           target="_blank"
           className="bg-slate-900 hover:bg-slate-800 text-white w-full h-full text-center p-2"
         >
-          View on Steam
+          View Deal
         </a>
       </div>
     </div>

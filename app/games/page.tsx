@@ -1,4 +1,4 @@
-import Header from "@/lib/components/Header/Header";
+import Header from "@/lib/components/ui/Header/Header";
 import GameSearch from "@/lib/components/Games/GameSearch/GameSearch";
 
 export default function Games() {

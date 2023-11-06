@@ -45,6 +45,7 @@ export default function Home() {
       <div className="flex flex-wrap bg-slate-300">
         <div className="p-12 flex-grow border border-dashed border-gray-600">
           <div className="text-2xl mb-4 font-bold">CheapShark API (Example)</div>
+
           <div>
             <a
               href="https://www.cheapshark.com/api/1.0/deals?storeID=1&upperPrice=15"
@@ -55,11 +56,13 @@ export default function Home() {
               https://www.cheapshark.com/api/1.0/deals?storeID=1&upperPrice=15
             </a>
           </div>
-          <div className="mt-4">
+
+          <div className="mt-4 max-w-3xl">
             Check the docs for more information, but basically <strong>storeID</strong>{" "}
             identifies which online platform to find deals for, where `1` is Steam.
           </div>
-          <div className="mt-4">
+
+          <div className="mt-4 max-w-3xl">
             The second parameter, <strong>upperPrice=15</strong> sets the ceiling price,
             so this query will find games that are $15 or less.
           </div>

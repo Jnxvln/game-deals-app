@@ -1,26 +1,14 @@
 "use client";
 import { useState, useEffect } from "react";
 
-export default function DealControls() {
+export default function DealControls({ onUpdate }: { onUpdate: Function }) {
   const [lowerPrice, setLowerPrice] = useState("10");
   const [upperPrice, setUpperPrice] = useState("40");
-  const [numberResults, setNumberResults] = useState("15");
+  const [pageSize, setPageSize] = useState("15");
 
   useEffect(() => {
-    // TODO: EXECUTE QUERY ON CHANGE, UPDATE DATA
-
-    if (lowerPrice) {
-      console.log(`Min: $${lowerPrice}`);
-    }
-
-    if (upperPrice) {
-      console.log(`Max: $${upperPrice}`);
-    }
-
-    if (numberResults) {
-      console.log(`Number results: ${numberResults}`);
-    }
-  }, [lowerPrice, upperPrice, numberResults]);
+    onUpdate({ lowerPrice, upperPrice, pageSize });
+  }, [lowerPrice, upperPrice, pageSize]);
 
   return (
     <div className="flex gap-4 items-center justify-center p-4 bg-slate-800">
@@ -75,10 +63,10 @@ export default function DealControls() {
       <div>
         <label className="mr-1 text-white"># Results: </label>
         <select
-          value={numberResults}
-          name="numberResults"
-          id="numberResults"
-          onChange={(e) => setNumberResults(e.target.value)}
+          value={pageSize}
+          name="pageSize"
+          id="pageSize"
+          onChange={(e) => setPageSize(e.target.value)}
           className="p-1 rounded-md"
         >
           <option value="">Choose</option>

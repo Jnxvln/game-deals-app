@@ -29,3 +29,9 @@ export type TGame = {
   steamAppID?: null;
   thumb?: string;
 };
+
+export type TDealQuery = {
+  lowerPrice: string | undefined;
+  upperPrice: string | undefined;
+  pageSize: string | undefined;
+};

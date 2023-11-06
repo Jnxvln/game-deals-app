@@ -1,11 +1,13 @@
 "use client";
 import { useState, useEffect, ChangeEvent } from "react";
 import { FormEvent } from "react";
-import { TDeal, TGame } from "@/lib/AppTypes";
+import { TGame } from "@/lib/AppTypes";
 import GameList from "../GameList/GameList";
+import Spinner from "../../ui/Spinner/Spinner";
 
 export default function GameSearch() {
   const [query, setQuery] = useState("");
+  const [loading, setLoading] = useState(false);
   const [games, setGames] = useState<TGame[]>([]);
 
   const API_ENDPOINT = "https://www.cheapshark.com/api/1.0/games";
@@ -17,11 +19,15 @@ export default function GameSearch() {
   const onSubmit = async (e: FormEvent) => {
     e.preventDefault();
 
+    setLoading(true);
+
     try {
       const result = await fetch(`${API_ENDPOINT}?title=${query}`);
       const data: TGame[] = await result.json();
+      setLoading(false);
       setGames(data);
     } catch (error) {
+      setLoading(false);
       console.log(error);
     }
   };
@@ -55,8 +61,13 @@ export default function GameSearch() {
         </div>
       </form>
 
-      <section className=" p-4">
-        <GameList games={games} />
+      <section className="p-4">
+        {loading && (
+          <div className="flex flex-col w-full items-center justify-center p-4">
+            <Spinner />
+          </div>
+        )}
+        {!loading && games && <GameList games={games} />}
       </section>
     </div>
   );

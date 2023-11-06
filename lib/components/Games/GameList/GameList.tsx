@@ -14,8 +14,6 @@ export default function GameList({ games }: { games: TGame[] }) {
 
   return (
     <div className="flex flex-wrap items-center justify-evenly gap-8 p-6 pt-10 max-w-7xl m-auto">
-      {!gameList || (gameList.length === 0 && <div>No games found</div>)}
-
       {gameList?.map((game: TGame) => (
         <Game key={game.gameID} game={game} />
       ))}

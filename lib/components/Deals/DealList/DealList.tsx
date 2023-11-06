@@ -4,6 +4,7 @@ import { getSteamDeals } from "@/lib/controllers/Deals";
 import { TDeal } from "@/lib/AppTypes";
 import Deal from "@/lib/components/Deals/Deal/Deal";
 import Spinner from "../../ui/Spinner/Spinner";
+import DealControls from "../DealControls/DealControls";
 
 export default function DealList({ deals }: { deals?: TDeal[] }) {
   const [steamDeals, setSteamDeals] = useState<TDeal[]>([]);
@@ -18,17 +19,22 @@ export default function DealList({ deals }: { deals?: TDeal[] }) {
   }, [deals, steamDeals]);
 
   return (
-    <div className="flex flex-wrap items-center justify-evenly gap-8 p-6 pt-10 max-w-7xl m-auto">
-      {!steamDeals ||
-        (steamDeals.length === 0 && (
-          <div className="flex flex-col items-center justify-center">
-            <Spinner />
-            <div>No steam deals found</div>
-          </div>
-        ))}
+    <div>
+      <div className="">
+        <DealControls />
+      </div>
+      <div className="flex flex-wrap items-center justify-evenly gap-8 p-6 pt-10 max-w-7xl m-auto">
+        {!steamDeals ||
+          (steamDeals.length === 0 && (
+            <div className="flex flex-col items-center justify-center">
+              <Spinner />
+              <div>No steam deals found</div>
+            </div>
+          ))}
 
-      {steamDeals?.length > 0 &&
-        steamDeals?.map((deal: TDeal) => <Deal key={deal.gameID} deal={deal} />)}
+        {steamDeals?.length > 0 &&
+          steamDeals?.map((deal: TDeal) => <Deal key={deal.gameID} deal={deal} />)}
+      </div>
     </div>
   );
 }

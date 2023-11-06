@@ -34,7 +34,11 @@ export default function Home() {
       <div className="p-12 text-center text-2xl">
         <div className="max-w-3xl m-auto">
           <strong>{appTitle}</strong> is a simple app designed to showcase the use of
-          fetching data from the CheapShark API using NextJS 13.
+          fetching data from the{" "}
+          <a href="https://apidocs.cheapshark.com/" target="_blank">
+            CheapShark API
+          </a>{" "}
+          using NextJS 13.
         </div>
       </div>
 
@@ -50,6 +54,14 @@ export default function Home() {
             >
               https://www.cheapshark.com/api/1.0/deals?storeID=1&upperPrice=15
             </a>
+          </div>
+          <div className="mt-4">
+            Check the docs for more information, but basically <strong>storeID</strong>{" "}
+            identifies which online platform to find deals for, where `1` is Steam.
+          </div>
+          <div className="mt-4">
+            The second parameter, <strong>upperPrice=15</strong> sets the ceiling price,
+            so this query will find games that are $15 or less.
           </div>
         </div>
 
